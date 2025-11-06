@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #0a1929;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: rgba(15, 30, 50, 0.95);
+    backdrop-filter: saturate(180%) blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    height: 44px;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-logo:hover {
+    opacity: 0.8;
+}
+
+.nav-logo svg {
+    width: 18px;
+    height: 44px;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: #e8e8e8;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    height: 44px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(15, 30, 50, 0.98);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-radius: 12px;
+    padding: 20px 0;
+    min-width: 240px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transform: translateX(-50%) translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 8px;
+}
+
+.nav-item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.dropdown-section {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.dropdown-section:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-section h3 {
+    font-size: 11px;
+    font-weight: 600;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    padding-top: 8px;
+}
+
+.dropdown-section a {
+    display: block;
+    color: #e8e8e8;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+    border-radius: 4px;
+}
+
+.dropdown-section a:hover {
+    color: #4a9eff;
+}
+
+/* Right Icons */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: #e8e8e8;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+    width: 18px;
+    height: 18px;
+}
+
+.icon-btn:hover {
+    color: #ffffff;
+}
+
+.icon-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 0 22px;
+    text-align: center;
+}
+
+.main-content h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.main-content p {
+    font-size: 18px;
+    color: #a0a0a0;
+}
+
+/* Responsive Design */
+@media (max-width: 1068px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-container {
+        justify-content: space-between;
+    }
+}
+
+/* Smooth transitions for dropdown */
+.nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #4a9eff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover::before {
+    transform: scaleX(1);
+}
+
+/* Additional styling for better dropdown appearance */
+.dropdown::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid rgba(15, 30, 50, 0.98);
+}
+
